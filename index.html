@@ -1,18 +1,117 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-MY">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta
       name="description"
-      content="SlopFactory is an independent AI-native software studio building custom web, mobile, and AI systems."
+      content="SlopFactory builds custom web apps, mobile products, AI systems, and third-party integrations for businesses in Malaysia and worldwide."
     />
+    <meta name="author" content="SlopFactory" />
     <meta name="theme-color" content="#f2ff49" />
+
+    <link rel="canonical" href="%SITE_URL%/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>SlopFactory — Useful software, made intelligently.</title>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SlopFactory" />
+    <meta property="og:locale" content="en_MY" />
+    <meta
+      property="og:title"
+      content="SlopFactory | Custom Web, Mobile &amp; AI Software"
+    />
+    <meta
+      property="og:description"
+      content="Useful custom software, built intelligently. Web, mobile, AI, and third-party integrations from an independent Malaysia-based studio."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta
+      property="og:image:alt"
+      content="SlopFactory: From messy idea to useful software"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SlopFactory | Custom Web, Mobile &amp; AI Software"
+    />
+    <meta
+      name="twitter:description"
+      content="Useful custom software, built intelligently."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "%SITE_URL%/#organization",
+            "name": "SlopFactory",
+            "url": "%SITE_URL%/",
+            "logo": "%SITE_URL%/apple-touch-icon.png",
+            "description": "An independent AI-native software studio building custom web, mobile, and intelligent systems.",
+            "foundingLocation": {
+              "@type": "Country",
+              "name": "Malaysia"
+            },
+            "areaServed": "Worldwide"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "url": "%SITE_URL%/",
+            "name": "SlopFactory",
+            "publisher": {
+              "@id": "%SITE_URL%/#organization"
+            },
+            "inLanguage": "en-MY"
+          },
+          {
+            "@type": "Service",
+            "@id": "%SITE_URL%/#software-services",
+            "name": "Custom software development",
+            "provider": {
+              "@id": "%SITE_URL%/#organization"
+            },
+            "areaServed": "Worldwide",
+            "serviceType": [
+              "Web application development",
+              "Mobile application development",
+              "AI and LLM implementation",
+              "Third-party service integration"
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <title>SlopFactory | Custom Web, Mobile &amp; AI Software</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>SlopFactory builds useful custom software.</h1>
+        <p>
+          An independent Malaysia-based studio for web applications, mobile
+          products, AI and LLM implementation, and third-party integrations.
+        </p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
