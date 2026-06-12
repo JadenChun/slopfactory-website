@@ -11,6 +11,8 @@
   --muted: #706f67;
   --line: rgba(17, 17, 15, 0.16);
   --mono: "DM Mono", monospace;
+  --page-gutter: clamp(18px, 4vw, 96px);
+  --section-space: clamp(88px, 10vw, 180px);
 }
 
 * {
@@ -47,15 +49,15 @@ a {
 .section-shell,
 .site-header,
 footer {
-  width: min(1180px, calc(100% - 48px));
+  width: calc(100% - (var(--page-gutter) * 2));
   margin-inline: auto;
 }
 
 .top-strip {
   display: flex;
-  justify-content: center;
-  gap: clamp(20px, 7vw, 100px);
-  padding: 8px 24px;
+  justify-content: space-between;
+  gap: clamp(20px, 7vw, 120px);
+  padding: 8px var(--page-gutter);
   color: #d7d7cd;
   background: var(--ink);
   font: 400 10px/1.4 var(--mono);
@@ -64,7 +66,7 @@ footer {
 }
 
 .top-strip span::before {
-  content: "•";
+  content: "\2022";
   margin-right: 10px;
   color: var(--acid);
 }
@@ -75,7 +77,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 86px;
+  height: clamp(76px, 6vw, 100px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -100,7 +102,7 @@ footer {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(18px, 2.2vw, 44px);
   color: #45453f;
   font-size: 12px;
   font-weight: 700;
@@ -134,11 +136,11 @@ footer {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 7vw;
+  grid-template-columns: minmax(0, 1.08fr) minmax(420px, 0.92fr);
+  gap: clamp(40px, 7vw, 150px);
   align-items: center;
-  min-height: 680px;
-  padding-block: 76px 90px;
+  min-height: min(820px, calc(100svh - 120px));
+  padding-block: clamp(64px, 7vw, 125px);
 }
 
 .eyebrow,
@@ -174,9 +176,9 @@ h2 {
 }
 
 h1 {
-  max-width: 720px;
+  max-width: 10ch;
   margin-bottom: 28px;
-  font-size: clamp(57px, 7vw, 92px);
+  font-size: clamp(58px, 6.5vw, 122px);
   line-height: 0.96;
 }
 
@@ -199,10 +201,10 @@ h1 span::after {
 }
 
 .hero-intro {
-  max-width: 590px;
+  max-width: 62ch;
   margin-bottom: 36px;
   color: #5b5a54;
-  font-size: 16px;
+  font-size: clamp(15px, 1.05vw, 19px);
   line-height: 1.7;
 }
 
@@ -248,7 +250,7 @@ h1 span::after {
 
 .hero-visual {
   position: relative;
-  min-height: 460px;
+  min-height: clamp(440px, 36vw, 620px);
   overflow: hidden;
   background: var(--ink);
   border-radius: 8px;
@@ -285,14 +287,14 @@ h1 span::after {
 }
 
 .orbit-one {
-  width: 330px;
-  height: 330px;
+  width: clamp(300px, 25vw, 430px);
+  height: clamp(300px, 25vw, 430px);
   animation: rotate 22s linear infinite;
 }
 
 .orbit-two {
-  width: 230px;
-  height: 230px;
+  width: clamp(210px, 18vw, 310px);
+  height: clamp(210px, 18vw, 310px);
   border-color: rgba(255, 91, 53, 0.38);
   animation: rotate 16s linear infinite reverse;
 }
@@ -315,9 +317,9 @@ h1 span::after {
   top: 50%;
   left: 50%;
   display: grid;
-  width: 160px;
-  height: 160px;
-  padding: 22px;
+  width: clamp(145px, 12vw, 205px);
+  height: clamp(145px, 12vw, 205px);
+  padding: clamp(20px, 1.7vw, 30px);
   color: var(--ink);
   background: var(--acid);
   border-radius: 50%;
@@ -326,8 +328,8 @@ h1 span::after {
 
 .factory-core strong {
   align-self: center;
-  max-width: 100px;
-  font-size: 23px;
+  max-width: 6ch;
+  font-size: clamp(21px, 1.7vw, 30px);
   line-height: 1.05;
   letter-spacing: -0.07em;
 }
@@ -343,10 +345,10 @@ h1 span::after {
 }
 
 .output-card {
-  right: 22px;
-  bottom: 24px;
-  width: 182px;
-  padding: 16px;
+  right: clamp(18px, 2vw, 34px);
+  bottom: clamp(20px, 2vw, 36px);
+  width: clamp(170px, 14vw, 225px);
+  padding: clamp(15px, 1.4vw, 22px);
   background: #f5f3eb;
   border-radius: 5px;
   transform: rotate(2deg);
@@ -441,15 +443,15 @@ h1 span::after {
 }
 
 .services {
-  padding-block: 150px 140px;
+  padding-block: var(--section-space);
 }
 
 .section-heading {
   display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.5fr);
+  gap: clamp(32px, 6vw, 110px);
   align-items: end;
-  margin-bottom: 56px;
+  margin-bottom: clamp(42px, 5vw, 76px);
 }
 
 .section-index {
@@ -468,27 +470,28 @@ h1 span::after {
 .lab h2,
 .contact h2 {
   margin-bottom: 0;
-  font-size: clamp(46px, 6vw, 74px);
+  font-size: clamp(46px, 5.2vw, 96px);
   line-height: 1;
 }
 
 .section-heading > p {
+  max-width: 42ch;
   margin-bottom: 5px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: clamp(12px, 0.9vw, 16px);
   line-height: 1.7;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 28px);
 }
 
 .service-card {
   position: relative;
-  min-height: 390px;
-  padding: 25px;
+  min-height: clamp(360px, 29vw, 470px);
+  padding: clamp(24px, 2vw, 36px);
   overflow: hidden;
   background: rgba(250, 249, 243, 0.72);
   border: 1px solid var(--line);
@@ -513,14 +516,15 @@ h1 span::after {
 
 .service-card h3 {
   margin-bottom: 13px;
-  font-size: 25px;
+  font-size: clamp(23px, 1.8vw, 32px);
   letter-spacing: -0.06em;
 }
 
 .service-card p {
+  max-width: 48ch;
   margin-bottom: 24px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: clamp(12px, 0.82vw, 15px);
   line-height: 1.7;
 }
 
@@ -554,16 +558,16 @@ h1 span::after {
 
 .approach-inner {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 9vw;
-  padding-block: 130px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(400px, 1.1fr);
+  gap: clamp(60px, 9vw, 180px);
+  padding-block: var(--section-space);
 }
 
 .approach-copy > p:not(.section-index) {
-  max-width: 510px;
+  max-width: 58ch;
   margin: 30px 0;
   color: #aaa99f;
-  font-size: 13px;
+  font-size: clamp(12px, 0.9vw, 16px);
   line-height: 1.8;
 }
 
@@ -616,25 +620,26 @@ h1 span::after {
 
 .process-list h3 {
   margin-bottom: 8px;
-  font-size: 19px;
+  font-size: clamp(18px, 1.4vw, 26px);
   letter-spacing: -0.04em;
 }
 
 .process-list p {
+  max-width: 58ch;
   margin-bottom: 0;
   color: #94948a;
-  font-size: 11px;
+  font-size: clamp(11px, 0.78vw, 14px);
   line-height: 1.6;
 }
 
 .lab {
-  padding-block: 130px;
+  padding-block: var(--section-space);
 }
 
 .lab-card {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 7vw;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: clamp(50px, 7vw, 130px);
   align-items: center;
   padding: clamp(40px, 7vw, 88px);
   background: var(--acid);
@@ -645,13 +650,13 @@ h1 span::after {
 
 .lab h2 {
   margin-bottom: 25px;
-  font-size: clamp(44px, 5.5vw, 68px);
+  font-size: clamp(44px, 4.8vw, 88px);
 }
 
 .lab-copy > p:not(.section-index) {
-  max-width: 630px;
+  max-width: 62ch;
   margin-bottom: 28px;
-  font-size: 13px;
+  font-size: clamp(12px, 0.9vw, 16px);
   line-height: 1.8;
 }
 
@@ -665,6 +670,8 @@ h1 span::after {
 }
 
 .lab-machine {
+  width: min(100%, 680px);
+  justify-self: end;
   padding: 15px;
   background: var(--ink);
   border-radius: 8px;
@@ -673,7 +680,7 @@ h1 span::after {
 
 .machine-window {
   display: grid;
-  min-height: 210px;
+  min-height: clamp(210px, 20vw, 360px);
   place-items: center;
   color: var(--acid);
   background:
@@ -728,7 +735,7 @@ h1 span::after {
 }
 
 .contact {
-  padding-block: 100px 130px;
+  padding-block: clamp(100px, 11vw, 200px);
   text-align: center;
 }
 
@@ -738,7 +745,7 @@ h1 span::after {
 
 .contact h2 {
   margin-bottom: 25px;
-  font-size: clamp(54px, 8vw, 100px);
+  font-size: clamp(54px, 7.2vw, 132px);
 }
 
 .contact h2 span {
@@ -746,10 +753,10 @@ h1 span::after {
 }
 
 .contact > p {
-  max-width: 540px;
+  max-width: 58ch;
   margin: 0 auto 32px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: clamp(12px, 0.9vw, 16px);
   line-height: 1.8;
 }
 
@@ -797,27 +804,48 @@ footer > span {
   text-align: right;
 }
 
-@media (max-width: 900px) {
-  .hero,
-  .approach-inner,
-  .lab-card {
+@media (max-width: 1100px) {
+  .hero {
     grid-template-columns: 1fr;
+    gap: clamp(48px, 7vw, 80px);
+    min-height: unset;
   }
 
-  .hero {
-    gap: 60px;
+  .hero-copy {
+    max-width: 920px;
+  }
+
+  h1 {
+    max-width: 11ch;
+    font-size: clamp(64px, 9.5vw, 104px);
   }
 
   .hero-visual {
-    min-height: 500px;
+    min-height: clamp(460px, 58vw, 620px);
   }
 
   .service-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-card {
-    min-height: 330px;
+    min-height: 350px;
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer p,
+  footer > span {
+    text-align: right;
+  }
+}
+
+@media (max-width: 900px) {
+  .approach-inner,
+  .lab-card {
+    grid-template-columns: 1fr;
   }
 
   .card-top {
@@ -836,10 +864,9 @@ footer > span {
 }
 
 @media (max-width: 720px) {
-  .section-shell,
-  .site-header,
-  footer {
-    width: min(100% - 30px, 1180px);
+  :root {
+    --page-gutter: 15px;
+    --section-space: 96px;
   }
 
   .top-strip {
@@ -935,6 +962,14 @@ footer > span {
     gap: 18px;
   }
 
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 330px;
+  }
+
   .services,
   .lab {
     padding-block: 100px;
@@ -970,6 +1005,54 @@ footer > span {
   footer > a,
   footer > span {
     text-align: left;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .orbit-one {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-two {
+    width: 190px;
+    height: 190px;
+  }
+
+  .factory-core {
+    width: 128px;
+    height: 128px;
+    padding: 17px;
+  }
+
+  .factory-core strong {
+    font-size: 19px;
+  }
+
+  .output-card {
+    width: 138px;
+    padding: 13px;
+  }
+
+  .floating-tag {
+    padding: 8px 9px;
+    font-size: 8px;
+  }
+
+  .lab-card {
+    padding: 30px 20px;
   }
 }
 

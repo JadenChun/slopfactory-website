@@ -338,7 +338,7 @@ function App() {
         <Logo />
         <p>Independent AI-native software studio.</p>
         <a href={siteConfig.contactHref}>{siteConfig.contactEmail}</a>
-        <span>© {new Date().getFullYear()} SlopFactory</span>
+        <span>&copy; {new Date().getFullYear()} SlopFactory</span>
       </footer>
     </>
   );
