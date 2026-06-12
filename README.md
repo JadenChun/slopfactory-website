@@ -49,3 +49,7 @@ ready.
 
 GitHub Actions validates lint and the production build on pushes and pull
 requests. Public contact details are configured in `src/siteConfig.js`.
+
+Brand assets are available at `public/logo-mark.svg` and
+`public/logo-lockup.svg`. The wordmark remains the primary identity, with the
+production-line symbol used for compact placements.

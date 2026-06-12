@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">SlopFactory symbol</title>
+  <desc id="desc">An S-shaped software production line</desc>
   <rect width="64" height="64" rx="13" fill="#11110f"/>
   <path d="M12 13h35v11H25c-2 0-3 1-3 3s1 3 3 3h15c8 0 13 5 13 12s-5 11-13 11H12V42h27c2 0 3-1 3-3s-1-3-3-3H24c-8 0-13-5-13-12 0-4 1-8 4-11h-3Z" fill="#efff3c"/>
   <circle cx="23" cy="47.5" r="2.7" fill="#11110f"/>

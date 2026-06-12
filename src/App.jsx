@@ -69,10 +69,8 @@ const principles = [
 function Logo() {
   return (
     <a className="logo" href="#top" aria-label="SlopFactory home">
-      <span className="logo-mark" aria-hidden="true">
-        S<span />
-      </span>
-      <span>slopfactory</span>
+      <img className="logo-mark" src="/logo-mark.svg" alt="" aria-hidden="true" />
+      <span className="logo-wordmark">slopfactory</span>
     </a>
   );
 }

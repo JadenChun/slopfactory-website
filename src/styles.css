@@ -82,33 +82,19 @@ footer {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-weight: 800;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.075em;
 }
 
 .logo-mark {
-  position: relative;
-  display: grid;
-  width: 29px;
-  height: 29px;
-  place-items: center;
-  overflow: hidden;
-  color: var(--acid);
-  background: var(--ink);
-  border-radius: 4px;
-  font: 500 17px/1 var(--mono);
-  letter-spacing: -0.15em;
+  display: block;
+  width: 31px;
+  height: 31px;
 }
 
-.logo-mark span {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 5px;
-  height: 5px;
-  background: var(--orange);
-  border-radius: 50%;
+.logo-wordmark {
+  transform: translateY(-1px);
 }
 
 .nav-links {
