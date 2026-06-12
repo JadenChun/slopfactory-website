@@ -48,4 +48,4 @@ only after CloudFront, its ACM certificate, and the alternate domain name are
 ready.
 
 GitHub Actions validates lint and the production build on pushes and pull
-requests. Update public contact details in `src/siteConfig.js` when ready.
+requests. Public contact details are configured in `src/siteConfig.js`.

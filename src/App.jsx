@@ -327,19 +327,19 @@ function App() {
             Share the idea, the bottleneck, or the thing your current tools
             refuse to do. We&apos;ll figure out the sensible next step.
           </p>
-          <a className="button button-dark" href="#contact-note">
+          <a className="button button-dark" href={siteConfig.contactHref}>
             Start the conversation <ArrowRight size={19} />
           </a>
-          <small id="contact-note">
-            Public contact channel coming next. In the meantime, this factory
-            is warming up.
-          </small>
+          <a className="contact-email" href={siteConfig.contactHref}>
+            {siteConfig.contactEmail}
+          </a>
         </section>
       </main>
 
       <footer>
         <Logo />
         <p>Independent AI-native software studio.</p>
+        <a href={siteConfig.contactHref}>{siteConfig.contactEmail}</a>
         <span>© {new Date().getFullYear()} SlopFactory</span>
       </footer>
     </>

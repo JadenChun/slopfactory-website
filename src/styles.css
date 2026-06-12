@@ -772,23 +772,26 @@ h1 span::after {
   background: var(--ink);
 }
 
-.contact small {
+.contact-email {
   display: block;
-  max-width: 360px;
   margin: 18px auto 0;
   color: var(--muted);
-  font: 400 8px/1.6 var(--mono);
+  font: 500 9px/1.6 var(--mono);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr auto;
   align-items: center;
+  gap: 24px;
   padding-block: 30px;
   border-top: 1px solid var(--line);
 }
 
 footer p,
+footer > a,
 footer span {
   margin: 0;
   color: var(--muted);
@@ -797,6 +800,11 @@ footer span {
 
 footer p {
   text-align: center;
+}
+
+footer > a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 footer > span {
@@ -973,6 +981,7 @@ footer > span {
   }
 
   footer p,
+  footer > a,
   footer > span {
     text-align: left;
   }
