@@ -67,8 +67,14 @@ const principles = [
 ];
 
 function Logo() {
+  function handleClick(event) {
+    event.preventDefault();
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <a className="logo" href="#top" aria-label="SlopFactory home">
+    <a className="logo" href="/" aria-label="SlopFactory home" onClick={handleClick}>
       <span className="logo-wordmark">slopfactory</span>
     </a>
   );
