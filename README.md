@@ -1,7 +1,8 @@
 # SlopFactory Official Website
 
-The official landing page for SlopFactory, an independent AI-native software
-studio building custom web, mobile, and intelligent systems.
+The official landing page for SlopFactory, a professional AI-native software
+studio building custom solutions and original web, mobile, and intelligent
+software products.
 
 ## Local development
 

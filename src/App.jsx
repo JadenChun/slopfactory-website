@@ -60,10 +60,10 @@ const process = [
 ];
 
 const principles = [
-  "Small-team attention",
+  "Small, focused team",
   "Clear, direct communication",
   "AI-assisted delivery",
-  "Built for real operations",
+  "Professional engineering",
 ];
 
 function Logo() {
@@ -144,7 +144,7 @@ function App() {
   return (
     <>
       <div className="top-strip">
-        <span>Independent software studio</span>
+        <span>Professional software studio</span>
         <span>Malaysia / working worldwide</span>
         <span>{siteConfig.status}</span>
       </div>
@@ -205,9 +205,9 @@ function App() {
               <h2>Software that fits the work.</h2>
             </div>
             <p>
-              No oversized team and no mystery process. Just careful product
-              thinking, direct collaboration, and the right technical tools for
-              the job.
+              A small, focused team of professional developers combining
+              careful product thinking, direct collaboration, and the right
+              technical tools for the job.
             </p>
           </div>
           <div className="service-grid">
@@ -240,15 +240,15 @@ function App() {
             <div className="approach-copy">
               <p className="section-index light">[ 02 / OPERATING SYSTEM ]</p>
               <h2>
-                One human.
+                Small team.
                 <br />
-                Serious leverage.
+                Professional delivery.
               </h2>
               <p>
-                SlopFactory is an independent studio run by one developer and
-                multiplied by modern AI tools. That means fewer handoffs,
-                tighter context, and more energy spent on making the product
-                work.
+                SlopFactory brings together professional software development
+                and modern AI tools to deliver with speed and care. A focused
+                team means clear ownership, fewer handoffs, and more attention
+                on making the product work.
               </p>
               <div className="principle-grid">
                 {principles.map((principle) => (
@@ -279,18 +279,19 @@ function App() {
             <div className="lab-copy">
               <p className="section-index">[ 03 / PRODUCT LAB ]</p>
               <h2>
-                Client work pays the bills.
+                Custom solutions for clients.
                 <br />
-                Products build the future.
+                Original products of our own.
               </h2>
               <p>
-                Alongside custom projects, SlopFactory is a place to experiment
-                with practical, wonderfully boring software of its own. Small
-                tools. Sharp ideas. Real utility.
+                Besides providing software customization services, SlopFactory
+                also develops its own software products. We turn practical
+                ideas into focused tools designed to solve real problems and
+                create lasting value.
               </p>
               <div className="lab-status">
                 <span className="status-dot" />
-                First product experiments queued
+                Original products in development
               </div>
             </div>
             <div className="lab-machine" aria-hidden="true">
@@ -335,7 +336,7 @@ function App() {
 
       <footer>
         <Logo />
-        <p>Independent AI-native software studio.</p>
+        <p>Small-team, AI-native software studio.</p>
         <a href={siteConfig.contactHref}>{siteConfig.contactEmail}</a>
         <span>&copy; {new Date().getFullYear()} SlopFactory</span>
       </footer>
