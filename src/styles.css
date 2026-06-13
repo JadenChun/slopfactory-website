@@ -38,7 +38,10 @@ body {
 }
 
 button,
-a {
+a,
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -274,6 +277,13 @@ h1 span::after {
 .button:hover {
   transform: translate(-3px, -3px);
   box-shadow: 5px 5px 0 var(--ink);
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+  box-shadow: none;
 }
 
 .button-primary {
@@ -585,10 +595,21 @@ h1 span::after {
   gap: 7px;
 }
 
-.card-arrow {
+.card-link {
   position: absolute;
   right: 23px;
   bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font: 500 9px/1.4 var(--mono);
+  transition: color 180ms ease;
+}
+
+.card-link:hover {
+  color: var(--orange);
 }
 
 .approach {
@@ -778,25 +799,27 @@ h1 span::after {
 
 .contact {
   padding-block: clamp(100px, 11vw, 200px);
-  text-align: center;
 }
 
-.contact-label {
-  justify-content: center;
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1.15fr);
+  gap: clamp(55px, 8vw, 150px);
+  align-items: start;
 }
 
 .contact h2 {
   margin-bottom: 25px;
-  font-size: clamp(54px, 7.2vw, 132px);
+  font-size: clamp(52px, 6vw, 110px);
 }
 
 .contact h2 span {
   color: var(--orange);
 }
 
-.contact > p {
+.contact-copy > p {
   max-width: 58ch;
-  margin: 0 auto 32px;
+  margin-bottom: 32px;
   color: var(--muted);
   font-size: clamp(12px, 0.9vw, 16px);
   line-height: 1.8;
@@ -807,13 +830,130 @@ h1 span::after {
   background: var(--ink);
 }
 
-.contact-email {
-  display: block;
-  margin: 18px auto 0;
+.direct-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
   color: var(--muted);
   font: 500 9px/1.6 var(--mono);
+}
+
+.direct-contact a {
+  color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 48px);
+  color: #f0efe6;
+  background: var(--ink);
+  border-radius: 8px;
+  box-shadow: 12px 12px 0 var(--acid);
+}
+
+.form-honeypot {
+  display: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form label > span {
+  display: flex;
+  justify-content: space-between;
+  color: #d7d7cd;
+  font: 500 9px/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-form label small {
+  color: #85857c;
+  font: inherit;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  color: #f0efe6;
+  background: #20201d;
+  border: 1px solid #45453f;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.contact-form select {
+  color-scheme: dark;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--acid);
+  box-shadow: 0 0 0 3px rgba(239, 255, 60, 0.14);
+}
+
+.contact-form textarea::placeholder {
+  color: #85857c;
+}
+
+.form-submit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 20px;
+  align-items: center;
+}
+
+.contact-form .button-dark {
+  color: var(--ink);
+  background: var(--acid);
+  border-color: var(--acid);
+}
+
+.contact-form .button-dark:hover {
+  box-shadow: 5px 5px 0 var(--orange);
+}
+
+.form-status {
+  margin: 0;
+  color: #aaa99f;
+  font: 400 9px/1.5 var(--mono);
+}
+
+.form-status.success {
+  color: var(--acid);
+}
+
+.form-status.error {
+  color: #ff8b70;
+}
+
+.form-privacy {
+  margin: -4px 0 0;
+  color: #85857c;
+  font: 400 8px/1.5 var(--mono);
 }
 
 footer {
@@ -886,8 +1026,13 @@ footer > span {
 
 @media (max-width: 900px) {
   .approach-inner,
-  .lab-card {
+  .lab-card,
+  .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-copy {
+    max-width: 760px;
   }
 
   .card-top {
@@ -1036,6 +1181,24 @@ footer > span {
   .lab-card {
     padding: 34px 25px;
     box-shadow: 7px 7px 0 var(--ink);
+  }
+
+  .contact-form {
+    padding: 25px 18px;
+    box-shadow: 7px 7px 0 var(--acid);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-submit {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-submit .button {
+    width: 100%;
   }
 
   footer {

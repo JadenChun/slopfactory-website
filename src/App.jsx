@@ -140,6 +140,122 @@ function HeroVisual() {
   );
 }
 
+function ContactForm() {
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setStatus("submitting");
+    setMessage("");
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(siteConfig.formEndpoint, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json();
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || "Unable to send the enquiry.");
+      }
+
+      form.reset();
+      setStatus("success");
+      setMessage("Thanks. Your project enquiry has been sent.");
+    } catch {
+      setStatus("error");
+      setMessage(
+        "The form could not send right now. Please email us directly instead.",
+      );
+    }
+  }
+
+  return (
+    <form
+      className="contact-form"
+      action={siteConfig.formAction}
+      method="POST"
+      onSubmit={handleSubmit}
+    >
+      <input
+        name="_subject"
+        type="hidden"
+        defaultValue="New project enquiry from SlopFactory website"
+      />
+      <input name="_template" type="hidden" defaultValue="table" />
+      <input name="_captcha" type="hidden" defaultValue="false" />
+      <input
+        className="form-honeypot"
+        name="_honey"
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+      <div className="form-row">
+        <label>
+          <span>Name</span>
+          <input name="name" type="text" autoComplete="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" autoComplete="email" required />
+        </label>
+      </div>
+      <div className="form-row">
+        <label>
+          <span>Company <small>Optional</small></span>
+          <input name="company" type="text" autoComplete="organization" />
+        </label>
+        <label>
+          <span>What do you need?</span>
+          <select name="service" defaultValue="" required>
+            <option value="" disabled>
+              Select a service
+            </option>
+            <option>Web system</option>
+            <option>Mobile product</option>
+            <option>AI or LLM implementation</option>
+            <option>Third-party integration</option>
+            <option>Something else</option>
+          </select>
+        </label>
+      </div>
+      <label>
+        <span>Tell us about the project</span>
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="The problem, the users, and what a successful outcome looks like..."
+          required
+        />
+      </label>
+      <div className="form-submit">
+        <button
+          className="button button-dark"
+          type="submit"
+          disabled={status === "submitting"}
+        >
+          {status === "submitting" ? "Sending..." : "Send project enquiry"}
+          <ArrowRight size={19} />
+        </button>
+        <p className={`form-status ${status}`} aria-live="polite">
+          {message}
+        </p>
+      </div>
+      <p className="form-privacy">
+        Your details are sent through FormSubmit and used only to respond to
+        your enquiry.
+      </p>
+    </form>
+  );
+}
+
 function App() {
   return (
     <>
@@ -228,7 +344,9 @@ function App() {
                       </li>
                     ))}
                   </ul>
-                  <ArrowDownRight className="card-arrow" size={23} />
+                  <a className="card-link" href="#contact">
+                    Discuss this service <ArrowDownRight size={17} />
+                  </a>
                 </article>
               );
             })}
@@ -313,31 +431,36 @@ function App() {
         </section>
 
         <section className="contact section-shell" id="contact">
-          <div className="contact-label">
-            <span className="status-dot" /> {siteConfig.status}
+          <div className="contact-grid">
+            <div className="contact-copy">
+              <div className="contact-label">
+                <span className="status-dot" /> {siteConfig.status}
+              </div>
+              <h2>
+                Got a useful problem?
+                <br />
+                <span>Let&apos;s make it software.</span>
+              </h2>
+              <p>
+                Share the idea, the bottleneck, or the thing your current tools
+                refuse to do. We&apos;ll figure out the sensible next step.
+              </p>
+              <div className="direct-contact">
+                <span>Prefer email?</span>
+                <a href={siteConfig.directEmailHref}>
+                  {siteConfig.contactEmail}
+                </a>
+              </div>
+            </div>
+            <ContactForm />
           </div>
-          <h2>
-            Got a useful problem?
-            <br />
-            <span>Let&apos;s make it software.</span>
-          </h2>
-          <p>
-            Share the idea, the bottleneck, or the thing your current tools
-            refuse to do. We&apos;ll figure out the sensible next step.
-          </p>
-          <a className="button button-dark" href={siteConfig.contactHref}>
-            Start the conversation <ArrowRight size={19} />
-          </a>
-          <a className="contact-email" href={siteConfig.contactHref}>
-            {siteConfig.contactEmail}
-          </a>
         </section>
       </main>
 
       <footer>
         <Logo />
         <p>Small-team, AI-native software studio.</p>
-        <a href={siteConfig.contactHref}>{siteConfig.contactEmail}</a>
+        <a href={siteConfig.directEmailHref}>{siteConfig.contactEmail}</a>
         <span>&copy; {new Date().getFullYear()} SlopFactory</span>
       </footer>
     </>

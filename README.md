@@ -53,3 +53,9 @@ requests. Public contact details are configured in `src/siteConfig.js`.
 
 The lowercase `slopfactory` logotype is the primary identity. The compact `sf`
 favicon is reserved for browser and app-icon placements.
+
+## Contact form
+
+Project enquiries are submitted to `support@slopfactory.cc` through FormSubmit,
+with direct email shown as a fallback. Before launch, submit the form once and
+approve the FormSubmit activation email sent to the support inbox.
