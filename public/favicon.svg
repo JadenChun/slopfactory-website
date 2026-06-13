@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <title>SlopFactory</title>
-  <rect width="64" height="64" rx="14" fill="#11110f"/>
-  <text x="8" y="42" fill="#efff3c" font-family="Arial Black, Arial, sans-serif" font-size="35" font-weight="900" letter-spacing="-5.5">sf</text>
-  <circle cx="51" cy="38" r="4" fill="#ff5b35"/>
-  <path d="M10 51h43" stroke="#efff3c" stroke-width="5" stroke-linecap="round"/>
-</svg>
