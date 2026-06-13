@@ -17,41 +17,26 @@ Set the final public domain so canonical URLs, Open Graph metadata, `robots.txt`
 and `sitemap.xml` all point to the correct host:
 
 ```powershell
-$env:VITE_SITE_URL="https://slopfactory.com"
+$env:VITE_SITE_URL="https://slopfactory.cc"
 npm run build
 ```
 
-The CloudFront-ready static output is written to `dist/`.
+The Cloudflare Pages-ready static output is written to `dist/`.
 
-## CloudFront setup
+## Deployment
 
-Use a private S3 bucket as the origin with Origin Access Control:
+The production website is hosted on Cloudflare Pages at
+`https://slopfactory.cc`. Cloudflare builds and deploys the website
+automatically whenever changes are pushed to `main`.
 
-1. Upload the contents of `dist/` to the bucket.
-2. Set the CloudFront default root object to `index.html`.
-3. Enable automatic compression and redirect HTTP to HTTPS.
-4. Give hashed files under `/assets/*` a long immutable cache policy.
-5. Keep `index.html`, `robots.txt`, and `sitemap.xml` on a short cache policy.
-6. Connect the custom domain with an ACM certificate issued in `us-east-1`.
-7. Invalidate `/index.html`, `/robots.txt`, and `/sitemap.xml` after releases.
-
-Once the S3 bucket and CloudFront distribution exist, deploy with:
-
-```powershell
-.\scripts\deploy-cloudfront.ps1 `
-  -Bucket "your-private-bucket" `
-  -DistributionId "YOUR_DISTRIBUTION_ID" `
-  -SiteUrl "https://slopfactory.com"
-```
-
-`slopfactory.com` currently resolves to Google-hosted DNS. Repoint the domain
-only after CloudFront, its ACM certificate, and the alternate domain name are
-ready.
+Follow [Cloudflare deployment instructions](docs/CLOUDFLARE_DEPLOYMENT.md) to
+connect the GitHub repository, configure the build, and attach the custom
+domain. GitHub Pages is disabled and is not used for deployment.
 
 GitHub Actions validates lint and the production build on pushes and pull
 requests. Public contact details are configured in `src/siteConfig.js`.
 
-The lowercase `slopfactory` logotype is the primary identity. The compact `sf`
+The lowercase `slopfactory` logotype is the primary identity. The compact `s`
 favicon is reserved for browser and app-icon placements.
 
 ## Contact form

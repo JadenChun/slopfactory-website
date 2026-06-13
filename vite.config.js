@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-const DEFAULT_SITE_URL = "https://slopfactory.com";
+const DEFAULT_SITE_URL = "https://slopfactory.cc";
 
 function normalizeSiteUrl(value) {
   return value.trim().replace(/\/+$/, "");
