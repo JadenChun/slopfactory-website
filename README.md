@@ -50,6 +50,5 @@ ready.
 GitHub Actions validates lint and the production build on pushes and pull
 requests. Public contact details are configured in `src/siteConfig.js`.
 
-Brand assets are available at `public/logo-mark.svg` and
-`public/logo-lockup.svg`. The wordmark remains the primary identity, with the
-consistent-width monoline S symbol used for compact placements.
+The lowercase `slopfactory` logotype is the primary identity. The compact `sf`
+favicon is reserved for browser and app-icon placements.

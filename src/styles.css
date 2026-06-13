@@ -84,19 +84,40 @@ footer {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  position: relative;
+  width: max-content;
+  justify-self: start;
+  padding: 4px 2px 7px;
   font-weight: 800;
   letter-spacing: -0.075em;
 }
 
-.logo-mark {
-  display: block;
-  width: 31px;
-  height: 31px;
+.logo::before {
+  position: absolute;
+  right: 1px;
+  bottom: 2px;
+  left: 1px;
+  height: 3px;
+  content: "";
+  background: var(--acid);
+  transform: skewX(-18deg);
+}
+
+.logo::after {
+  position: absolute;
+  top: 1px;
+  right: -7px;
+  width: 5px;
+  height: 5px;
+  content: "";
+  background: var(--orange);
+  border-radius: 50%;
 }
 
 .logo-wordmark {
-  transform: translateY(-1px);
+  font-size: clamp(16px, 1.25vw, 21px);
+  font-weight: 800;
+  line-height: 1;
 }
 
 .nav-links {
@@ -784,7 +805,7 @@ footer {
 }
 
 footer p,
-footer > a,
+footer > a:not(.logo),
 footer span {
   margin: 0;
   color: var(--muted);
@@ -795,7 +816,7 @@ footer p {
   text-align: center;
 }
 
-footer > a {
+footer > a:not(.logo) {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1002,7 +1023,7 @@ footer > span {
   }
 
   footer p,
-  footer > a,
+  footer > a:not(.logo),
   footer > span {
     text-align: left;
   }
