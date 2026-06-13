@@ -52,4 +52,4 @@ requests. Public contact details are configured in `src/siteConfig.js`.
 
 Brand assets are available at `public/logo-mark.svg` and
 `public/logo-lockup.svg`. The wordmark remains the primary identity, with the
-minimalist S symbol used for compact placements.
+consistent-width monoline S symbol used for compact placements.

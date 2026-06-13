@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 96" role="img" aria-labelledby="title desc">
   <title id="title">SlopFactory</title>
-  <desc id="desc">SlopFactory wordmark with a minimalist S symbol</desc>
+  <desc id="desc">SlopFactory wordmark with a consistent-width monoline S symbol</desc>
   <rect x="8" y="8" width="80" height="80" rx="16" fill="#11110f"/>
-  <path d="M24 24h46v14H41c-4 0-6 2-6 5s2 5 6 5h14c11 0 18 6 18 15s-7 15-18 15H24V64h30c4 0 6-2 6-5s-2-5-6-5H40c-11 0-18-6-18-15 0-6 3-11 7-15h-5Z" fill="#efff3c"/>
-  <circle cx="71" cy="24" r="6" fill="#ff5b35"/>
+  <path d="M68 28H44c-10 0-16 5-16 12s6 12 16 12h8c10 0 16 5 16 12s-6 12-16 12H28" fill="none" stroke="#efff3c" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70" cy="26" r="6" fill="#ff5b35"/>
   <text x="108" y="63" fill="#11110f" font-family="Manrope, Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="-3">slopfactory</text>
 </svg>
