@@ -21,14 +21,15 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  scroll-padding-top: 110px;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     linear-gradient(rgba(17, 17, 15, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(17, 17, 15, 0.035) 1px, transparent 1px),
@@ -72,13 +73,33 @@ footer {
 }
 
 .site-header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  z-index: 20;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: clamp(76px, 6vw, 100px);
+  background: rgba(245, 243, 235, 0.88);
   border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px) saturate(140%);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.site-header::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(var(--page-gutter) * -1);
+  content: "";
+  background: inherit;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: inherit;
+}
+
+.site-header:hover {
+  background: rgba(245, 243, 235, 0.96);
 }
 
 .logo {
@@ -911,7 +932,7 @@ footer > span {
 
   .nav-links {
     position: absolute;
-    top: 64px;
+    top: calc(100% + 8px);
     right: 0;
     left: 0;
     display: none;
